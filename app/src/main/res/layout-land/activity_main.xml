@@ -8,17 +8,19 @@
     android:background="@drawable/wood">
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:id="@+id/linear"
+        android:layout_width="300dp"
         android:layout_height="215dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btn9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@id/btn9">
 
         <TextView
             android:id="@+id/viewResult"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="215dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -64,7 +66,7 @@
         android:text="@string/_9"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btn6"
-        app:layout_constraintEnd_toStartOf="@id/btnPrt"
+        app:layout_constraintEnd_toStartOf="@id/linear"
         app:layout_constraintStart_toEndOf="@id/btn8" />
 
     <Button
@@ -79,7 +81,7 @@
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnMtp"
         app:layout_constraintEnd_toStartOf="@id/btnRoot"
-        app:layout_constraintStart_toEndOf="@id/btn9" />
+        app:layout_constraintStart_toEndOf="@id/linear" />
 
     <Button
         android:id="@+id/btnRoot"
@@ -132,7 +134,7 @@
         android:text="@string/_6"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btn3"
-        app:layout_constraintEnd_toStartOf="@id/btnMtp"
+        app:layout_constraintEnd_toStartOf="@id/linear"
         app:layout_constraintStart_toEndOf="@id/btn5"
         tools:ignore="ButtonStyle" />
 
@@ -148,7 +150,7 @@
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnSbt"
         app:layout_constraintEnd_toStartOf="@id/btnDvn"
-        app:layout_constraintStart_toEndOf="@id/btn6" />
+        app:layout_constraintStart_toEndOf="@id/linear" />
 
     <Button
         android:id="@+id/btnDvn"
@@ -201,7 +203,7 @@
         android:text="@string/_3"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnPoint"
-        app:layout_constraintEnd_toStartOf="@id/btnSbt"
+        app:layout_constraintEnd_toStartOf="@id/linear"
         app:layout_constraintStart_toEndOf="@id/btn2" />
 
     <Button
@@ -216,7 +218,7 @@
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnAdd"
         app:layout_constraintEnd_toStartOf="@id/btnReset"
-        app:layout_constraintStart_toEndOf="@id/btn3" />
+        app:layout_constraintStart_toEndOf="@id/linear" />
 
     <Button
         android:id="@+id/btnReset"
@@ -268,7 +270,7 @@
         android:text="@string/Point"
         android:translationZ="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnAdd"
+        app:layout_constraintEnd_toStartOf="@id/linear"
         app:layout_constraintStart_toEndOf="@id/btnDoubleZero" />
 
     <Button
@@ -283,7 +285,7 @@
         android:translationZ="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnResult"
-        app:layout_constraintStart_toEndOf="@id/btnPoint" />
+        app:layout_constraintStart_toEndOf="@id/linear" />
 
     <Button
         android:id="@+id/btnResult"
