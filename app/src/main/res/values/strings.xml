@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">Digital Keyboard</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+    <string name="_4">4</string>
+    <string name="_5">5</string>
+    <string name="_6">6</string>
+    <string name="_7">7</string>
+    <string name="_8">8</string>
+    <string name="_9">9</string>
+    <string name="_0">0</string>
+    <string name="_00">00</string>
+    <string name="Color_text">#000000</string>
+    <string name="_point">.</string>
+    <string name="Percent">%</string>
+    <string name="Root">√</string>
+    <string name="Multiplication">X</string>
+    <string name="Division">/</string>
+    <string name="Subtraction">-</string>
+    <string name="Reset">C</string>
+    <string name="Point">.</string>
+    <string name="Addition">+</string>
+    <string name="Result">=</string>
+    <string name="Error_string">Строка ошибок</string>
+    <string name="result">0</string>
+    <string name="btnBackSpace">&#10229;</string>
 </resources>
