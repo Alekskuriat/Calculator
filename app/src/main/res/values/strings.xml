@@ -24,4 +24,5 @@
     <string name="Result">=</string>
     <string name="Error_string">Строка ошибок</string>
     <string name="result">0</string>
+    <string name="btnBackSpace">&#10229;</string>
 </resources>
