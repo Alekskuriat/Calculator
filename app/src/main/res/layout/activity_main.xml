@@ -60,22 +60,22 @@
         android:text="@string/_9"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btn6"
-        app:layout_constraintEnd_toStartOf="@id/btnPrt"
+        app:layout_constraintEnd_toStartOf="@id/btnDvn"
         app:layout_constraintStart_toEndOf="@id/btn8" />
 
     <Button
-        android:id="@+id/btnPrt"
+        android:id="@+id/btnBackSpace"
         android:layout_width="0dp"
         android:layout_height="@dimen/button_height"
-        android:layout_margin="10dp"
-        android:backgroundTint="@color/sign_button"
+        android:layout_margin="10sp"
         android:elevation="2dp"
-        android:text="@string/Percent"
+        android:text="@string/btnBackSpace"
         android:textColor="@color/white"
         android:translationZ="2dp"
-        app:layout_constraintBottom_toTopOf="@id/btnMtp"
-        app:layout_constraintEnd_toStartOf="@id/btnRoot"
-        app:layout_constraintStart_toEndOf="@id/btn9" />
+        app:backgroundTint="@color/equally_button"
+        app:layout_constraintBottom_toTopOf="@id/btnReset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnMtp" />
 
     <Button
         android:id="@+id/btnRoot"
@@ -87,9 +87,9 @@
         android:text="@string/Root"
         android:textColor="@color/white"
         android:translationZ="2dp"
-        app:layout_constraintBottom_toTopOf="@id/btnDvn"
+        app:layout_constraintBottom_toTopOf="@id/btnBackSpace"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnPrt" />
+        app:layout_constraintStart_toEndOf="@id/btnDvn" />
 
 
     <Button
@@ -143,7 +143,7 @@
         android:textColor="@color/white"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnSbt"
-        app:layout_constraintEnd_toStartOf="@id/btnDvn"
+        app:layout_constraintEnd_toStartOf="@id/btnBackSpace"
         app:layout_constraintStart_toEndOf="@id/btn6" />
 
     <Button
@@ -156,9 +156,9 @@
         android:text="@string/Division"
         android:textColor="@color/white"
         android:translationZ="2dp"
-        app:layout_constraintBottom_toTopOf="@id/btnReset"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnMtp" />
+        app:layout_constraintBottom_toTopOf="@id/btnMtp"
+        app:layout_constraintEnd_toStartOf="@id/btnRoot"
+        app:layout_constraintStart_toEndOf="@id/btn9" />
 
 
     <Button
@@ -295,19 +295,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btnAdd" />
 
-    <Button
-        android:id="@+id/btnBackSpace"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginEnd="10sp"
-        android:elevation="2dp"
-        android:text="@string/btnBackSpace"
-        android:textColor="@color/white"
-        android:translationZ="2dp"
-        app:backgroundTint="@color/equally_button"
-        app:layout_constraintBottom_toTopOf="@id/btnRoot"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/btnRoot"
-        tools:textSize="20sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
