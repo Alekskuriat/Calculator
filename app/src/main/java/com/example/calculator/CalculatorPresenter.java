@@ -104,10 +104,11 @@ public class CalculatorPresenter {
         }
     }
 
+
     public void btnResult() {
         if (rightParent == leftParent) {
-            replaceExp();
             exp = Calculator.calculate(expression.substring(0));
+            roundExp();
             view.setResultText(exp);
             expression.delete(0, expression.length());
             expression.append(exp);
@@ -121,9 +122,17 @@ public class CalculatorPresenter {
         expression.append(s);
     }
 
-    private void replaceExp() {
-        for (int i = expression.length() - 1; i > 0 ; i--) {
-            if (expression.charAt(i) == ',') expression.setCharAt(i, '.');
+
+    private void roundExp() {
+        int i;
+        int counterZero = 0;
+        for (i = 0; i < exp.length()  ; i++) {
+            if (exp.charAt(i) == '.') break;
+        }
+        for (int j = i; j < exp.length(); j++) {
+            if (exp.charAt(j) == '0') counterZero++;
+            else counterZero = 0;
+            if (counterZero > 3) exp = exp.substring(0, j - 3 );
         }
     }
 
