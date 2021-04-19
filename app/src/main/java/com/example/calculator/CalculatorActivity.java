@@ -20,9 +20,36 @@ public class CalculatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-        presenter = new CalculatorPresenter(this, new Calculator());
         inicializationView();
+        presenter = new CalculatorPresenter(this, new Calculator());
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        resultText.setText(savedInstanceState.getString("textView"));
+        presenter.count = savedInstanceState.getInt("count");
+        presenter.rightParent = savedInstanceState.getInt("rightParent");
+        presenter.leftParent = savedInstanceState.getInt("leftParent");
+        presenter.expression.delete(0, presenter.expression.length());
+        presenter.expression.append(savedInstanceState.getString("expression"));
+        firstEntry = savedInstanceState.getBoolean("entry");
+    }
+
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString("textView", String.valueOf(presenter.expression));
+        outState.putInt("count", presenter.count);
+        outState.putInt("rightParent", presenter.rightParent);
+        outState.putInt("leftParent", presenter.leftParent);
+        outState.putString("expression", String.valueOf(presenter.expression));
+        outState.putBoolean("entry", firstEntry);
+        super.onSaveInstanceState(outState);
     }
 
     private void inicializationView() {
@@ -45,8 +72,9 @@ public class CalculatorActivity extends AppCompatActivity {
         Button btnReset = findViewById(R.id.btnReset);
         Button btnResult = findViewById(R.id.btnResult);
         Button btnBackSpace = findViewById(R.id.btnBackSpace);
-        Button btnRoot = findViewById(R.id.btnRoot);
         Button btnPoint = findViewById(R.id.btnPoint);
+        Button btnRightParent = findViewById(R.id.btnRightParent);
+        Button btnLeftParent = findViewById(R.id.btnLeftParent);
 
 
         btn1.setOnClickListener(onClickListener);
@@ -67,8 +95,10 @@ public class CalculatorActivity extends AppCompatActivity {
         btnReset.setOnClickListener(onClickListener);
         btnResult.setOnClickListener(onClickListener);
         btnBackSpace.setOnClickListener(onClickListener);
-        btnRoot.setOnClickListener(onClickListener);
         btnPoint.setOnClickListener(onClickListener);
+        btnRightParent.setOnClickListener(onClickListener);
+        btnLeftParent.setOnClickListener(onClickListener);
+
 
     }
 
@@ -133,9 +163,6 @@ public class CalculatorActivity extends AppCompatActivity {
                 case R.id.btnReset:
                     presenter.btnReset();
                     break;
-                case R.id.btnRoot:
-                    presenter.btnRoot();
-                    break;
                 case R.id.btnAdd:
                     presenter.btnCharacter("+");
                     break;
@@ -153,6 +180,12 @@ public class CalculatorActivity extends AppCompatActivity {
                     break;
                 case R.id.btnPoint:
                     presenter.btnPoint();
+                    break;
+                case R.id.btnRightParent:
+                    presenter.btnRightParent();
+                    break;
+                case R.id.btnLeftParent:
+                    presenter.btnLeftParent();
                     break;
                 case R.id.btnResult:
                     presenter.btnResult();

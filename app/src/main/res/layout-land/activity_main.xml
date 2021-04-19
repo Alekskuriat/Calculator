@@ -70,32 +70,32 @@
         app:layout_constraintStart_toEndOf="@id/btn8" />
 
     <Button
-        android:id="@+id/btnPrt"
+        android:id="@+id/btnLeftParent"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="@dimen/button_height"
         android:layout_margin="10dp"
         android:backgroundTint="@color/sign_button"
         android:elevation="2dp"
-        android:text="@string/Percent"
+        android:text="@string/RightParent"
         android:textColor="@color/white"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnMtp"
-        app:layout_constraintEnd_toStartOf="@id/btnRoot"
+        app:layout_constraintEnd_toStartOf="@id/btnRightParent"
         app:layout_constraintStart_toEndOf="@id/linear" />
-
     <Button
-        android:id="@+id/btnRoot"
+        android:id="@+id/btnRightParent"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="@dimen/button_height"
         android:layout_margin="10dp"
         android:backgroundTint="@color/sign_button"
         android:elevation="2dp"
-        android:text="@string/Root"
+        android:text="@string/LeftParent"
         android:textColor="@color/white"
         android:translationZ="2dp"
         app:layout_constraintBottom_toTopOf="@id/btnDvn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnPrt" />
+        app:layout_constraintStart_toEndOf="@id/btnLeftParent" />
+
 
 
     <Button

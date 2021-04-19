@@ -15,14 +15,17 @@ public class Calculator {
 
     public enum LexemeType {
         OP_PLUS, OP_MINUS, OP_MUL, OP_DIV,
+        LEFT_PARENT, RIGHT_PARENT,
         NUMBER,
         EOF;
 
     }
+
     public static class Lexeme {
 
         LexemeType type;
         String value;
+
         public Lexeme(LexemeType type, String value) {
             this.type = type;
             this.value = value;
@@ -33,15 +36,8 @@ public class Calculator {
             this.value = value.toString();
         }
 
-        @Override
-        public String toString() {
-            return "Lexeme{" +
-                    "type=" + type +
-                    ", value='" + value + '\'' +
-                    '}';
-        }
-
     }
+
     public static class LexemeBuffer {
 
         private int pos;
@@ -59,25 +55,23 @@ public class Calculator {
             pos--;
         }
 
-        public int getPos() {
-            return pos;
-        }
-
-        public Lexeme getValue(int pos){
-            return lexemes.get(pos);
-        }
-
-        public int size(){
-            return lexemes.size();
-        }
 
     }
+
     public static List<Lexeme> lexAnalyze(String expText) {
         ArrayList<Lexeme> lexemes = new ArrayList<>();
         int pos = 0;
-        while (pos< expText.length()) {
+        while (pos < expText.length()) {
             char c = expText.charAt(pos);
             switch (c) {
+                case '(':
+                    lexemes.add(new Lexeme(LexemeType.LEFT_PARENT, c));
+                    pos++;
+                    continue;
+                case ')':
+                    lexemes.add(new Lexeme(LexemeType.RIGHT_PARENT, c));
+                    pos++;
+                    continue;
                 case '+':
                     lexemes.add(new Lexeme(LexemeType.OP_PLUS, c));
                     pos++;
@@ -140,11 +134,9 @@ public class Calculator {
                     value -= multdiv(lexemes);
                     break;
                 case EOF:
+                case RIGHT_PARENT:
                     lexemes.back();
                     return value;
-                default:
-                    throw new RuntimeException("Unexpected token: " + lexeme.value
-                            + " at position: " + lexemes.getPos());
             }
         }
     }
@@ -161,13 +153,11 @@ public class Calculator {
                     value /= factor(lexemes);
                     break;
                 case EOF:
+                case RIGHT_PARENT:
                 case OP_PLUS:
                 case OP_MINUS:
                     lexemes.back();
                     return value;
-                default:
-                    throw new RuntimeException("Unexpected token: " + lexeme.value
-                            + " at position: " + lexemes.getPos());
             }
         }
     }
@@ -177,10 +167,13 @@ public class Calculator {
         switch (lexeme.type) {
             case NUMBER:
                 return Double.parseDouble(lexeme.value);
-            default:
-                throw new RuntimeException("Unexpected token: " + lexeme.value
-                        + " at position: " + lexemes.getPos());
+            case LEFT_PARENT:
+                double value = plusminus(lexemes);
+                lexeme = lexemes.next();
+                return value;
+
         }
+        return null;
     }
 
 
