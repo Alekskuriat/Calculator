@@ -35,7 +35,6 @@ public class CalculatorPresenter {
                 .charAt(view.getTextView().length() - 1) != ZERO) display("0");
     }
 
-
     public void btnDoubleZeroClicked() {
         if (!(view.getTextView()
                 .getText()
@@ -53,7 +52,6 @@ public class CalculatorPresenter {
         leftParent = 0;
         count = 0;
     }
-
 
     public void btnCharacter(String c) {
         if (!(characterCheck() || view.getFirstEntry())) display(c);
@@ -108,6 +106,7 @@ public class CalculatorPresenter {
 
     public void btnResult() {
         if (rightParent == leftParent) {
+            replaceExp();
             exp = Calculator.calculate(expression.substring(0));
             view.setResultText(exp);
             expression.delete(0, expression.length());
@@ -117,10 +116,15 @@ public class CalculatorPresenter {
 
     }
 
-
     private void display(String s) {
         view.showResult(s);
         expression.append(s);
+    }
+
+    private void replaceExp() {
+        for (int i = expression.length() - 1; i > 0 ; i--) {
+            if (expression.charAt(i) == ',') expression.setCharAt(i, '.');
+        }
     }
 
     private boolean characterFind() {
@@ -129,7 +133,6 @@ public class CalculatorPresenter {
                 || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_MPT
                 || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_DVN;
     }
-
 
     private boolean characterCheck() {
         return view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_ADD

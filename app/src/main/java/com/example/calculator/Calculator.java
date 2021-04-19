@@ -1,16 +1,19 @@
 package com.example.calculator;
 
 
+import android.annotation.SuppressLint;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
 
 
+    @SuppressLint("DefaultLocale")
     public static String calculate(String s) {
         List<Lexeme> lexemes = lexAnalyze(s);
         LexemeBuffer lexemeBuffer = new LexemeBuffer(lexemes);
-        return Double.toString(expr(lexemeBuffer));
+        return String.format("%.3g", expr(lexemeBuffer));
     }
 
     public enum LexemeType {

@@ -22,13 +22,6 @@ public class CalculatorActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         inicializationView();
         presenter = new CalculatorPresenter(this, new Calculator());
-
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
