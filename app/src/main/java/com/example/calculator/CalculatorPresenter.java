@@ -54,6 +54,7 @@ public class CalculatorPresenter {
     }
 
     public void btnCharacter(String c) {
+        if (c.equals("-") && view.getFirstEntry() ) display(c);
         if (!(characterCheck() || view.getFirstEntry())) display(c);
     }
 
@@ -98,7 +99,7 @@ public class CalculatorPresenter {
     }
 
     public void btnLeftParent() {
-        if (characterFind()) {
+        if (characterFind() || view.getFirstEntry()) {
             leftParent++;
             display("(");
         }
@@ -108,10 +109,15 @@ public class CalculatorPresenter {
     public void btnResult() {
         if (rightParent == leftParent) {
             exp = Calculator.calculate(expression.substring(0));
-            roundExp();
-            view.setResultText(exp);
-            expression.delete(0, expression.length());
-            expression.append(exp);
+            if (exp.equals("Infinity")) {
+               btnReset();
+            }
+            else {
+                roundExp();
+                view.setResultText(String.valueOf(expression) + '=' + exp);
+                expression.delete(0, expression.length());
+                expression.append(exp);
+            }
         }
 
 
@@ -126,13 +132,13 @@ public class CalculatorPresenter {
     private void roundExp() {
         int i;
         int counterZero = 0;
-        for (i = 0; i < exp.length()  ; i++) {
+        for (i = 0; i < exp.length(); i++) {
             if (exp.charAt(i) == '.') break;
         }
         for (int j = i; j < exp.length(); j++) {
             if (exp.charAt(j) == '0') counterZero++;
             else counterZero = 0;
-            if (counterZero > 3) exp = exp.substring(0, j - 3 );
+            if (counterZero > 3) exp = exp.substring(0, j - 3);
         }
     }
 

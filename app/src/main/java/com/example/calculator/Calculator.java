@@ -61,9 +61,14 @@ public class Calculator {
 
     public static List<Lexeme> lexAnalyze(String expText) {
         ArrayList<Lexeme> lexemes = new ArrayList<>();
+        boolean negativeNumber = false;
         int pos = 0;
         while (pos < expText.length()) {
             char c = expText.charAt(pos);
+            if (pos == 0 && c == '-') {
+                negativeNumber = true;
+                c = expText.charAt(++pos);
+            }
             switch (c) {
                 case '(':
                     lexemes.add(new Lexeme(LexemeType.LEFT_PARENT, c));
@@ -93,6 +98,10 @@ public class Calculator {
                     if (c <= '9' && c >= '0' || c == '.') {
                         StringBuilder sb = new StringBuilder();
                         do {
+                            if (negativeNumber) {
+                                sb.append('-');
+                                negativeNumber = false;
+                            }
                             sb.append(c);
                             pos++;
                             if (pos >= expText.length()) {
