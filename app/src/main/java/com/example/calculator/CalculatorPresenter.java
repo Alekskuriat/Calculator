@@ -15,6 +15,7 @@ public class CalculatorPresenter {
     int rightParent = 0;
     int leftParent = 0;
     int count = 0;
+    char lastSymbol;
     StringBuffer expression = new StringBuffer("");
     String exp;
 
@@ -30,9 +31,9 @@ public class CalculatorPresenter {
     public void btnZeroClicked() {
         long a = System.nanoTime();
         if (!expression.toString().equals(""))
-            if (expression.charAt(expression.length() - 1) != ZERO &&
-                expression.charAt(expression.length() - 1) != SYMBOL_LEFT_PARENT &&
-                expression.charAt(expression.length() - 1) != SYMBOL_RIGHT_PARENT) {
+            if (lastSymbol != ZERO &&
+                lastSymbol != SYMBOL_LEFT_PARENT &&
+                lastSymbol != SYMBOL_RIGHT_PARENT) {
             display("0");
         }
         a = System.nanoTime() - a;
@@ -58,9 +59,8 @@ public class CalculatorPresenter {
 
     public void btnBackSpace() {
         if (expression.length() > 1) {
-            char viewLastElement = expression.charAt(expression.length() - 1);
-            if (viewLastElement == SYMBOL_LEFT_PARENT) leftParent--;
-            else if (viewLastElement == SYMBOL_RIGHT_PARENT) rightParent--;
+            if (lastSymbol == SYMBOL_LEFT_PARENT) leftParent--;
+            else if (lastSymbol == SYMBOL_RIGHT_PARENT) rightParent--;
             else count--;
             view.setResultText(expression.deleteCharAt(expression.length() - 1).toString());
         } else {
@@ -117,6 +117,7 @@ public class CalculatorPresenter {
     private void display(String s) {
         view.showResult(s);
         expression.append(s);
+        lastSymbol = s.charAt(0);
     }
 
 
@@ -134,18 +135,18 @@ public class CalculatorPresenter {
     }
 
     private boolean characterFind() {
-        return expression.charAt(expression.length() - 1) == SYMBOL_ADD ||
-                expression.charAt(expression.length() - 1) == SYMBOL_SBT ||
-                expression.charAt(expression.length() - 1) == SYMBOL_MPT ||
-                expression.charAt(expression.length() - 1) == SYMBOL_DVN;
+        return lastSymbol == SYMBOL_ADD ||
+                lastSymbol == SYMBOL_SBT ||
+                lastSymbol == SYMBOL_MPT ||
+                lastSymbol == SYMBOL_DVN;
     }
 
     private boolean characterCheck() {
-        return expression.charAt(expression.length() - 1) == SYMBOL_ADD ||
-                expression.charAt(expression.length() - 1) == SYMBOL_SBT ||
-                expression.charAt(expression.length() - 1) == SYMBOL_DVN ||
-                expression.charAt(expression.length() - 1) == SYMBOL_MPT ||
-                expression.charAt(expression.length() - 1) == SYMBOL_DOT;
+        return lastSymbol == SYMBOL_ADD ||
+                lastSymbol == SYMBOL_SBT ||
+                lastSymbol == SYMBOL_DVN ||
+                lastSymbol == SYMBOL_MPT ||
+                lastSymbol == SYMBOL_DOT;
     }
 
     private boolean findCharacter() {
