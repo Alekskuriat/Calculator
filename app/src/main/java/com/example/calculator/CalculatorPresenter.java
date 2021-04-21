@@ -21,7 +21,6 @@ public class CalculatorPresenter {
     public CalculatorPresenter(CalculatorActivity view, Calculator calculator) {
         this.view = view;
         this.calculator = calculator;
-        //expression.append(view.getTextView().getText().toString());
     }
 
     public void btnNumberClicked(String number) {
@@ -36,21 +35,11 @@ public class CalculatorPresenter {
                 expression.charAt(expression.length() - 1) != SYMBOL_RIGHT_PARENT) {
             display("0");
         }
-        /*if (view.getTextView()
-                .getText()
-                .toString()
-                .charAt(view.getTextView().length() - 1) != ZERO) display("0");*/
         a = System.nanoTime() - a;
     }
 
     public void btnDoubleZeroClicked() {
         if (!(expression.toString().equals("0"))) display("00");
-        /*if (!(view.getTextView()
-                .getText()
-                .toString()
-                .equals("0"))) {
-            display("00");
-        }*/
     }
 
     public void btnReset() {
@@ -68,19 +57,12 @@ public class CalculatorPresenter {
     }
 
     public void btnBackSpace() {
-        /*char viewLastElement = view.getTextView().getText().toString().charAt(view.getTextView().length() - 1);*/
         if (expression.length() > 1) {
-            /*if (view.getTextView().length() > 1) {*/
             char viewLastElement = expression.charAt(expression.length() - 1);
             if (viewLastElement == SYMBOL_LEFT_PARENT) leftParent--;
             else if (viewLastElement == SYMBOL_RIGHT_PARENT) rightParent--;
             else count--;
             view.setResultText(expression.deleteCharAt(expression.length() - 1).toString());
-            /*view.setResultText(view.getTextView()
-                    .getText()
-                    .toString()
-                    .substring(0, view.getTextView().length() - 1));
-            expression.deleteCharAt(expression.length() - 1);*/
         } else {
             view.setResultText("0");
             view.setFirstEntry();
@@ -100,9 +82,6 @@ public class CalculatorPresenter {
         count = 0;
         for (int i = expression.length() - 1; i > 0; i--) {
             if (expression.charAt(i) != SYMBOL_LEFT_PARENT) {
-        /*
-        for (int i = view.getTextView().length() - 1; i > 0; i--) {
-            if (view.getTextView().getText().charAt(i) != SYMBOL_LEFT_PARENT) {*/
                 count++;
                 if (count == 3) break;
             } else break;
@@ -133,8 +112,6 @@ public class CalculatorPresenter {
                 expression.append(exp);
             }
         }
-
-
     }
 
     private void display(String s) {
@@ -161,11 +138,6 @@ public class CalculatorPresenter {
                 expression.charAt(expression.length() - 1) == SYMBOL_SBT ||
                 expression.charAt(expression.length() - 1) == SYMBOL_MPT ||
                 expression.charAt(expression.length() - 1) == SYMBOL_DVN;
-                /*
-        return view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_ADD
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_SBT
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_MPT
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_DVN;*/
     }
 
     private boolean characterCheck() {
@@ -174,11 +146,6 @@ public class CalculatorPresenter {
                 expression.charAt(expression.length() - 1) == SYMBOL_DVN ||
                 expression.charAt(expression.length() - 1) == SYMBOL_MPT ||
                 expression.charAt(expression.length() - 1) == SYMBOL_DOT;
-        /*return view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_ADD
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_SBT
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_MPT
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_DVN
-                || view.getTextView().getText().toString().charAt(view.getTextView().length() - 1) == SYMBOL_DOT;*/
     }
 
     private boolean findCharacter() {
@@ -188,18 +155,7 @@ public class CalculatorPresenter {
                     expression.charAt(i) == SYMBOL_SBT ||
                     expression.charAt(i) == SYMBOL_SBT ||
                     expression.charAt(i) == SYMBOL_SBT) return true;
-
-        /*for (int i = view.getTextView().length() - 1; i > 0; i--) {
-            if (view.getTextView().getText().toString().charAt(i) == SYMBOL_DOT) return false;
-            if (view.getTextView().getText().toString().charAt(i) == SYMBOL_SBT
-                    || view.getTextView().getText().toString().charAt(i) == SYMBOL_MPT
-                    || view.getTextView().getText().toString().charAt(i) == SYMBOL_DVN
-                    || view.getTextView().getText().toString().charAt(i) == SYMBOL_ADD) {
-                return true;
-            }*/
         }
         return true;
     }
-
-
 }
