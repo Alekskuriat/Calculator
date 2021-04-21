@@ -152,10 +152,10 @@ public class CalculatorPresenter {
     private boolean findCharacter() {
         for (int i = expression.length() - 1; i > 0; i--) {
             if (expression.charAt(i) == SYMBOL_DOT) return false;
-            if (expression.charAt(i) == SYMBOL_SBT ||
+            if (expression.charAt(i) == SYMBOL_ADD ||
+                    expression.charAt(i) == SYMBOL_MPT ||
                     expression.charAt(i) == SYMBOL_SBT ||
-                    expression.charAt(i) == SYMBOL_SBT ||
-                    expression.charAt(i) == SYMBOL_SBT) return true;
+                    expression.charAt(i) == SYMBOL_DVN) return true;
         }
         return true;
     }
