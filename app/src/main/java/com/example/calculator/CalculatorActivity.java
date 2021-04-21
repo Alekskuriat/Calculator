@@ -13,7 +13,8 @@ public class CalculatorActivity extends AppCompatActivity {
     private TextView resultText;
     private boolean firstEntry = true;
     private CalculatorPresenter presenter;
-
+    private final int[] numberButtonIds = new int[]{R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4, R.id.btn5,
+            R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class CalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         inicializationView();
+        setNumberButtonListeners();
         presenter = new CalculatorPresenter(this, new Calculator());
     }
 
@@ -115,38 +117,18 @@ public class CalculatorActivity extends AppCompatActivity {
         resultText.setText(s);
     }
 
+    private void setNumberButtonListeners() {
+        for (int i = 0; i < numberButtonIds.length; i++) {
+            int index = i + 1;
+            findViewById(numberButtonIds[i]).setOnClickListener(v -> presenter.btnNumberClicked(String.valueOf(index)));
+        }
+    }
+
     private final View.OnClickListener onClickListener = new View.OnClickListener() {
         @SuppressLint({"NonConstantResourceId", "SetTextI18n"})
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.btn1:
-                    presenter.btnNumberClicked("1");
-                    break;
-                case R.id.btn2:
-                    presenter.btnNumberClicked("2");
-                    break;
-                case R.id.btn3:
-                    presenter.btnNumberClicked("3");
-                    break;
-                case R.id.btn4:
-                    presenter.btnNumberClicked("4");
-                    break;
-                case R.id.btn5:
-                    presenter.btnNumberClicked("5");
-                    break;
-                case R.id.btn6:
-                    presenter.btnNumberClicked("6");
-                    break;
-                case R.id.btn7:
-                    presenter.btnNumberClicked("7");
-                    break;
-                case R.id.btn8:
-                    presenter.btnNumberClicked("8");
-                    break;
-                case R.id.btn9:
-                    presenter.btnNumberClicked("9");
-                    break;
                 case R.id.btnZero:
                     presenter.btnZeroClicked();
                     break;
