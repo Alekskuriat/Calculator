@@ -25,4 +25,6 @@
     <string name="Error_string">Строка ошибок</string>
     <string name="result">0</string>
     <string name="btnBackSpace">&#10229;</string>
+    <string name="RightParent">(</string>
+    <string name="LeftParent">)</string>
 </resources>
