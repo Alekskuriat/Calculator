@@ -127,8 +127,8 @@ public class CalculatorPresenter {
         for (i = 0; i < exp.length(); i++) {
             if (exp.charAt(i) == '.') break;
         }
-        for (int j = i; j < exp.length(); j++) {
-            if (exp.charAt(j) == '0') counterZero++;
+        for (int j = i + 1; j < exp.length(); j++) {
+            if (exp.charAt(j) == exp.charAt(j - 1)) counterZero++;
             else counterZero = 0;
             if (counterZero > 3) exp = exp.substring(0, j - 3);
         }

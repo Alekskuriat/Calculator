@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="number_button">#FFFFFF</color>
+    <color name="sign_button">#FF5900</color>
+    <color name="equally_button">#DA0000</color>
+    <color name="reset_button">#E40000</color>
+    <color name="text_view_background">#0b172a</color>
+    <color name="background_color_night" tools:ignore="MissingDefaultResource">#000000</color>
+    <color name="background_color_2">#47132E</color>
+    <color name="service_button_color">#5C5C5C</color>
+    <color name="operation_button_color">#AFAFAF</color>
+    <color name="button_color_night" tools:ignore="MissingDefaultResource">#0C0C0C</color>
+    <color name="text_color_night" tools:ignore="MissingDefaultResource">#FF6F00</color>
+
+
+</resources>
