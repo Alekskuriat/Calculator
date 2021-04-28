@@ -5,211 +5,201 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/BackgroundStyle">
+
+    >
 
 
-        <TextView
-            android:id="@+id/viewResult"
-            android:layout_width="match_parent"
-            android:layout_height="215dp"
-            android:padding="20dp"
-            android:gravity="bottom|end"
-            android:text="@string/result"
-            android:textSize="36sp"
-            app:layout_constraintBottom_toTopOf="@id/btnBackSpace"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/textViewStyle"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/viewResult"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:gravity="bottom|end"
+        android:padding="20dp"
+        android:text="@string/result"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@id/btnBackSpace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnTheme"
+        style="@style/CalcButtonServiceStyle"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/theme"
+        app:layout_constraintBottom_toTopOf="@id/btn7"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn7"
+        style="@style/CalcButtonStyle"
         android:text="@string/_7"
         app:layout_constraintBottom_toTopOf="@id/btn4"
         app:layout_constraintEnd_toStartOf="@id/btn8"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/CalcButtonStyle" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn8"
+        style="@style/CalcButtonStyle"
         android:text="@string/_8"
         app:layout_constraintBottom_toTopOf="@id/btn5"
         app:layout_constraintEnd_toStartOf="@id/btn9"
-        app:layout_constraintStart_toEndOf="@id/btn7"
-        style="@style/CalcButtonStyle" />
+        app:layout_constraintStart_toEndOf="@id/btn7" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn9"
+        style="@style/CalcButtonStyle"
         android:text="@string/_9"
         app:layout_constraintBottom_toTopOf="@id/btn6"
         app:layout_constraintEnd_toStartOf="@id/btnDvn"
-        app:layout_constraintStart_toEndOf="@id/btn8"
-        style="@style/CalcButtonStyle" />
+        app:layout_constraintStart_toEndOf="@id/btn8" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBackSpace"
+        style="@style/CalcButtonBackSpaceStyle"
         android:text="@string/btnBackSpace"
         app:layout_constraintBottom_toTopOf="@id/btnDvn"
         app:layout_constraintEnd_toEndOf="@id/btnRightParent"
-        app:layout_constraintStart_toStartOf="@id/btnDvn"
-        style="@style/CalcButtonBackSpaceStyle"
-        />
+        app:layout_constraintStart_toStartOf="@id/btnDvn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLeftParent"
+        style="@style/CalcButtonOperationStyle"
         android:text="@string/RightParent"
         app:layout_constraintBottom_toTopOf="@id/btnRightParent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnDvn"
-        style="@style/CalcButtonOperationStyle"
-         />
+        app:layout_constraintStart_toEndOf="@id/btnDvn" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRightParent"
+        style="@style/CalcButtonOperationStyle"
         android:text="@string/LeftParent"
         app:layout_constraintBottom_toTopOf="@id/btnReset"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnMtp"
-        style="@style/CalcButtonOperationStyle"
-         />
+        app:layout_constraintStart_toEndOf="@id/btnMtp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn4"
+        style="@style/CalcButtonStyle"
         android:text="@string/_4"
         app:layout_constraintBottom_toTopOf="@id/btn1"
         app:layout_constraintEnd_toStartOf="@id/btn5"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/CalcButtonStyle"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn5"
+        style="@style/CalcButtonStyle"
         android:text="@string/_5"
         app:layout_constraintBottom_toTopOf="@id/btn2"
         app:layout_constraintEnd_toStartOf="@id/btn6"
-        app:layout_constraintStart_toEndOf="@id/btn4"
-        style="@style/CalcButtonStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btn4" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn6"
+        style="@style/CalcButtonStyle"
         android:text="@string/_6"
         app:layout_constraintBottom_toTopOf="@id/btn3"
         app:layout_constraintEnd_toStartOf="@id/btnMtp"
-        app:layout_constraintStart_toEndOf="@id/btn5"
-        style="@style/CalcButtonStyle"
-         />
+        app:layout_constraintStart_toEndOf="@id/btn5" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnMtp"
+        style="@style/CalcButtonOperationStyle"
         android:text="@string/Multiplication"
         app:layout_constraintBottom_toTopOf="@id/btnSbt"
         app:layout_constraintEnd_toStartOf="@id/btnRightParent"
-        app:layout_constraintStart_toEndOf="@id/btn6"
-        style="@style/CalcButtonOperationStyle"
-         />
+        app:layout_constraintStart_toEndOf="@id/btn6" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDvn"
+        style="@style/CalcButtonOperationStyle"
         android:text="@string/Division"
         app:layout_constraintBottom_toTopOf="@id/btnMtp"
         app:layout_constraintEnd_toStartOf="@id/btnLeftParent"
-        app:layout_constraintStart_toEndOf="@id/btn9"
-        style="@style/CalcButtonOperationStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btn9" />
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn1"
+        style="@style/CalcButtonStyle"
         android:text="@string/_1"
         app:layout_constraintBottom_toTopOf="@id/btnZero"
         app:layout_constraintEnd_toStartOf="@id/btn2"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/CalcButtonStyle"
-         />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn2"
+        style="@style/CalcButtonStyle"
         android:text="@string/_2"
         app:layout_constraintBottom_toTopOf="@id/btnDoubleZero"
         app:layout_constraintEnd_toStartOf="@id/btn3"
-        app:layout_constraintStart_toEndOf="@id/btn1"
-        style="@style/CalcButtonStyle"
-         />
+        app:layout_constraintStart_toEndOf="@id/btn1" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn3"
+        style="@style/CalcButtonStyle"
         android:text="@string/_3"
         app:layout_constraintBottom_toTopOf="@id/btnPoint"
         app:layout_constraintEnd_toStartOf="@id/btnSbt"
-        app:layout_constraintStart_toEndOf="@id/btn2"
-        style="@style/CalcButtonStyle"
-         />
+        app:layout_constraintStart_toEndOf="@id/btn2" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSbt"
+        style="@style/CalcButtonOperationStyle"
         android:text="@string/Subtraction"
         app:layout_constraintBottom_toTopOf="@id/btnAdd"
         app:layout_constraintEnd_toStartOf="@id/btnReset"
-        app:layout_constraintStart_toEndOf="@id/btn3"
-        style="@style/CalcButtonOperationStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btn3" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnReset"
+        style="@style/CalcButtonServiceStyle"
         android:text="@string/Reset"
         app:layout_constraintBottom_toTopOf="@id/btnResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnSbt"
-        style="@style/CalcButtonServiceStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btnSbt" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnZero"
+        style="@style/CalcButtonStyle"
         android:text="@string/_0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnDoubleZero"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/CalcButtonStyle"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnDoubleZero"
+        style="@style/CalcButtonStyle"
         android:text="@string/_00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnPoint"
-        app:layout_constraintStart_toEndOf="@id/btnZero"
-        style="@style/CalcButtonStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btnZero" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnPoint"
+        style="@style/CalcButtonStyle"
         android:text="@string/Point"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnAdd"
-        app:layout_constraintStart_toEndOf="@id/btnDoubleZero"
-        style="@style/CalcButtonStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btnDoubleZero" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdd"
+        style="@style/CalcButtonOperationStyle"
         android:text="@string/Addition"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btnResult"
-        app:layout_constraintStart_toEndOf="@id/btnPoint"
-        style="@style/CalcButtonOperationStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btnPoint" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnResult"
+        style="@style/CalcButtonServiceStyle"
         android:text="@string/Result"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnAdd"
-        style="@style/CalcButtonServiceStyle"
-        />
+        app:layout_constraintStart_toEndOf="@id/btnAdd" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,4 +27,10 @@
     <string name="btnBackSpace">&#10229;</string>
     <string name="RightParent">(</string>
     <string name="LeftParent">)</string>
+    <string name="theme3">Тема 3</string>
+    <string name="theme2">Тема 2</string>
+    <string name="theme1">Тема 1</string>
+    <string name="back">Назад</string>
+    <string name="themeApplication">Выберите тему приложения</string>
+    <string name="theme">Theme</string>
 </resources>
