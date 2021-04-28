@@ -49,15 +49,6 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private void inicializationView() {
         resultText = findViewById(R.id.viewResult);
-        Button btn1 = findViewById(R.id.btn1);
-        Button btn2 = findViewById(R.id.btn2);
-        Button btn3 = findViewById(R.id.btn3);
-        Button btn4 = findViewById(R.id.btn4);
-        Button btn5 = findViewById(R.id.btn5);
-        Button btn6 = findViewById(R.id.btn6);
-        Button btn7 = findViewById(R.id.btn7);
-        Button btn8 = findViewById(R.id.btn8);
-        Button btn9 = findViewById(R.id.btn9);
         Button btnZero = findViewById(R.id.btnZero);
         Button btnDoubleZero = findViewById(R.id.btnDoubleZero);
         Button btnAdd = findViewById(R.id.btnAdd);
@@ -72,15 +63,6 @@ public class CalculatorActivity extends AppCompatActivity {
         Button btnLeftParent = findViewById(R.id.btnLeftParent);
 
 
-        btn1.setOnClickListener(onClickListener);
-        btn2.setOnClickListener(onClickListener);
-        btn3.setOnClickListener(onClickListener);
-        btn4.setOnClickListener(onClickListener);
-        btn5.setOnClickListener(onClickListener);
-        btn6.setOnClickListener(onClickListener);
-        btn7.setOnClickListener(onClickListener);
-        btn8.setOnClickListener(onClickListener);
-        btn9.setOnClickListener(onClickListener);
         btnZero.setOnClickListener(onClickListener);
         btnDoubleZero.setOnClickListener(onClickListener);
         btnAdd.setOnClickListener(onClickListener);
