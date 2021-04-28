@@ -14,4 +14,5 @@
     <dimen name="linear_layout_marginTop">10dp</dimen>
     <dimen name="text_view_padding_land">20dp</dimen>
     <dimen name="text_view_textsize_land">36sp</dimen>
+    <dimen name="marginTopBtnThemes">100dp</dimen>
 </resources>

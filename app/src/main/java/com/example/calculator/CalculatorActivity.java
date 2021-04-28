@@ -3,6 +3,8 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
 
+    public static int themeNumber = 1;
     private TextView resultText;
     private boolean firstEntry = true;
     private CalculatorPresenter presenter;
@@ -18,13 +21,20 @@ public class CalculatorActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (themeNumber == 1)
+            setTheme(R.style.Theme_Calculator);
+        else if (themeNumber == 2)
+            setTheme(R.style.Theme_Calculator2);
+        else
+            setTheme(R.style.Theme_Calculator3);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+      //  getSupportActionBar().hide();
         inicializationView();
         setNumberButtonListeners();
         presenter = new CalculatorPresenter(this, new Calculator());
     }
+
 
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -61,7 +71,7 @@ public class CalculatorActivity extends AppCompatActivity {
         Button btnPoint = findViewById(R.id.btnPoint);
         Button btnRightParent = findViewById(R.id.btnRightParent);
         Button btnLeftParent = findViewById(R.id.btnLeftParent);
-
+        Button btnTheme = findViewById(R.id.btnTheme);
 
         btnZero.setOnClickListener(onClickListener);
         btnDoubleZero.setOnClickListener(onClickListener);
@@ -75,6 +85,7 @@ public class CalculatorActivity extends AppCompatActivity {
         btnPoint.setOnClickListener(onClickListener);
         btnRightParent.setOnClickListener(onClickListener);
         btnLeftParent.setOnClickListener(onClickListener);
+        btnTheme.setOnClickListener(onClickListener);
 
 
     }
@@ -144,6 +155,9 @@ public class CalculatorActivity extends AppCompatActivity {
                 case R.id.btnLeftParent:
                     presenter.btnLeftParent();
                     break;
+                case R.id.btnTheme:
+                    Intent intent = new Intent(CalculatorActivity.this, ThemeActivity.class);
+                    startActivity(intent);
                 case R.id.btnResult:
                     presenter.btnResult();
             }
