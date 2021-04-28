@@ -1,0 +1,41 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="CalcButtonStyle" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="backgroundTint">@color/button_color_night</item>
+        <item name="android:elevation">@dimen/elevation</item>
+        <item name="android:translationZ">@dimen/translationZ</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:layout_width">@dimen/button_weight</item>
+        <item name="android:layout_margin">@dimen/marginButton</item>
+        <item name="android:textColor">@color/text_color_night</item>
+
+
+
+    </style>
+
+    <style name="CalcButtonOperationStyle" parent="CalcButtonStyle">
+        <item name="backgroundTint">@color/button_color_night</item>
+    </style>
+
+    <style name="CalcButtonServiceStyle" parent="CalcButtonStyle">
+        <item name="backgroundTint">@color/button_color_night</item>
+    </style>
+
+    <style name="CalcButtonBackSpaceStyle" parent="CalcButtonServiceStyle">
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <style name="BackgroundStyle">
+        <item name="android:background">@color/background_color_night</item>
+    </style>
+
+    <style name="textViewStyle">
+        <item name="android:textColor">@color/text_color_night</item>
+        <item name="android:background">@color/button_color_night</item>
+    </style>
+
+
+</resources>

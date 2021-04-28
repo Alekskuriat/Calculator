@@ -12,4 +12,12 @@
     <color name="sign_button">#FF5900</color>
     <color name="equally_button">#DA0000</color>
     <color name="reset_button">#E40000</color>
+    <color name="text_view_background">#FFFFFF</color>
+    <color name="background_color">#004D40</color>
+    <color name="background_color_2">#89FFEB</color>
+    <color name="service_button_color">#305353</color>
+    <color name="operation_button_color">#719A8B</color>
+    <color name="button_color">#EDEDED</color>
+    <color name="text_color">#004D40</color>
+
 </resources>
